@@ -21,7 +21,3 @@ provider "aws" {
   alias  = "cloudfront_waf"
   region = "us-east-1" # for Cloudfront WAF only, must be in us-east-1
 }
-
-provider "tfe" {
-  token = var.hcp_tf_token
-}

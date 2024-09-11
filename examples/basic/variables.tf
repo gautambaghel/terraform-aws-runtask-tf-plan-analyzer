@@ -3,12 +3,6 @@ variable "hcp_tf_org" {
   description = "HCP Terraform Organization name"
 }
 
-variable "hcp_tf_token" {
-  type        = string
-  sensitive   = true
-  description = "HCP Terraform API token"
-}
-
 variable "tf_run_task_logic_iam_roles" {
   type        = list(string)
   description = "values for the IAM roles to be used by the run task logic"
