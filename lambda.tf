@@ -13,11 +13,7 @@ resource "terraform_data" "bootstrap" {
 	      rm -rf site-packages
         mkdir -p site-packages
         cp *.* ./site-packages
-        mkdir -p build
-        python3 -m venv build/
-        . build/bin/activate; \
         pip3 install  -r requirements.txt -t ./site-packages;
-        rm -rf build
         cd -
       fi
       done
