@@ -5,7 +5,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "5.56.1"
     }
-
+    awscc = {
+      source  = "hashicorp/awscc"
+      version = "1.11.0"
+    }
     tfe = {
       source  = "hashicorp/tfe"
       version = "~>0.38.0"
@@ -20,4 +23,8 @@ provider "aws" {
 provider "aws" {
   alias  = "cloudfront_waf"
   region = "us-east-1" # for Cloudfront WAF only, must be in us-east-1
+}
+
+provider "awscc" {
+  region = var.region
 }
