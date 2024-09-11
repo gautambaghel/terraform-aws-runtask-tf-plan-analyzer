@@ -4,7 +4,24 @@
 
 resource "terraform_data" "bootstrap" {
   provisioner "local-exec" {
-    command = "cd ${path.module} && make build"
+    command = <<EOT
+      for dir in ${path.module}/lambda/*; do
+      if [ -d "$dir" ]; then
+        cd "$dir"
+	      echo ************ Starting Build: $dir ************
+        rm -rf build
+	      rm -rf site-packages
+        mkdir -p site-packages
+        cp *.* ./site-packages
+        mkdir -p build
+        python3 -m venv build/
+        . build/bin/activate; \
+        pip3 install  -r requirements.txt -t ./site-packages;
+        rm -rf build
+        cd -
+      fi
+      done
+    EOT
   }
 }
 
