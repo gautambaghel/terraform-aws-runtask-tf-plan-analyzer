@@ -19,6 +19,9 @@ resource "terraform_data" "bootstrap" {
       done
     EOT
   }
+  triggers_replace = {
+    always_run = "${timestamp()}"
+  }
 }
 
 ################# Run task EventBridge ##################
