@@ -19,8 +19,8 @@ resource "terraform_data" "bootstrap" {
       done
     EOT
   }
-  triggers_replace = {
-    always_run = "${timestamp()}"
+  lifecycle {
+    replace_triggered_by = [timestamp()]
   }
 }
 
