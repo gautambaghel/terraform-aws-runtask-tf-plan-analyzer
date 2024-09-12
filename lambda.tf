@@ -3,6 +3,7 @@
 #####################################################################################
 
 resource "terraform_data" "bootstrap" {
+  triggers_replace = [uuid()]
   provisioner "local-exec" {
     command = <<EOT
       for dir in ${path.module}/lambda/*; do
@@ -18,9 +19,6 @@ resource "terraform_data" "bootstrap" {
       fi
       done
     EOT
-  }
-  lifecycle {
-    replace_triggered_by = [timestamp()]
   }
 }
 
