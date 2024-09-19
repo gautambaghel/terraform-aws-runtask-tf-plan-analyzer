@@ -10,7 +10,6 @@ resource "terraform_data" "bootstrap" {
       if [ -d "$dir" ]; then
         cd "$dir"
 	      echo ************ Starting Build: $dir ************
-        rm -rf build
 	      rm -rf site-packages
         mkdir -p site-packages
         cp *.* ./site-packages

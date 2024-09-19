@@ -117,9 +117,9 @@ def __patch(endpoint, headers, payload):
                 f"Invalid endpoint URL, expected host is: {HCP_TF_HOST_NAME}"
             )
     except HTTPError as error:
-        logger.error(error.status, error.reason)
+        logger.error(f"HTTPError: {error.status} - {error.reason}")
     except URLError as error:
-        logger.error(error.reason)
+        logger.error(f"URLError: {error.reason}")
     except TimeoutError:
         logger.error("Request timed out")
 
