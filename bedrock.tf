@@ -10,12 +10,12 @@ resource "awscc_bedrock_guardrail" "runtask_fulfillment" {
       {
         input_strength  = "HIGH"
         output_strength = "HIGH"
-        type            = "SEXUAL"
+        type            = "VIOLENCE"
       },
       {
         input_strength  = "HIGH"
         output_strength = "HIGH"
-        type            = "VIOLENCE"
+        type            = "SEXUAL"
       },
       {
         input_strength  = "HIGH"
